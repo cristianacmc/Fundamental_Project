@@ -65,6 +65,6 @@ the training modules. The tech stack required would be the following:
 
 2 - A relational database with and the relationship among the tables:
 
-![](images/truffleshop_ERD.PNG "Trello board")
+![](images/truffleshop_ERD.png "ERD diagram")
 
 3 - Inserted a few records into the table: 
