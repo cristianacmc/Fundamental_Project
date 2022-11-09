@@ -1,0 +1,10 @@
+<html>
+    <body>
+    <h1>CocoaCris</h1>
+    {% block body %}
+    {% endblock body %}
+    {% for truffle in all_truffles %}
+    <p>{{ truffle }}</p>
+    {% endfor %}
+    </body>
+</html>

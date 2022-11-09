@@ -1,12 +1,11 @@
-from app import db
+from application import db
 
 # Creates all table classes defined
 db.drop_all()
 db.create_all() 
 
-
 ''''
-#export DATABASE_URI="mysql+pymysql://root:9812@127.0.0.1:3306/flask_trainning"
+#export DATABASE_URI="mysql+pymysql://root:9812@127.0.0.1:3306/chocolateshop"
 # adding records to Truffles table 
 t_1 = Truffles(title='Truffle with zero added sugar 30g', truffle_description='Delicious milk chocolate truffle with zero added sugar. With surprising flavor, ideal for those who have dietary restrictions!', unit_price=2.2)
 db.session.add(t_1)

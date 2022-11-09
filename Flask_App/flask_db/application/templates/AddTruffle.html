@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Add a new truffle</title>
+    </head>
+    <body>
+        <div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.title.label }} {{ form.title }}
+                <br>
+                {{ form.truffle_description.label }} {{ form.truffle_description }}
+                <br>
+                {{ form.unit_price.label }} {{ form.unit_price }}
+                <br>
+                {{ form.category.label}} {{ form.category}}
+                <br>
+                {{ form.in_stock.label }} {{ form.in_stock }}
+                <br>
+                {{ form.submit }}
+                <br>
+            {{ message }}
+            </form>
+        </div>
+    </body>
+</html>

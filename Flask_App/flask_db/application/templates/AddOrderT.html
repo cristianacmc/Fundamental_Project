@@ -1,0 +1,21 @@
+<body>
+    <h1>Add a new order truffle:</h1>
+    <p>
+        <div class='form'>
+            <form method='POST' action=''>
+                <!-- hidden_tag() is required for form validation -->
+                {{ form.hidden_tag() }}
+                <!-- Each field displays its label followed by the input field itself -->
+                {%  for t in get_truffles %}
+                {{ t.user_id.label }} {{ t.user_id }}
+                {{ t.truffle_id.label }} {{ t.truffle_id }}
+                {{ t.quantity.label }} {{ t.quantity }}
+                {{ form.subTotal.label }} {{ form.subTotal }}
+                <br>
+                <!-- form.submit is a button -->
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
