@@ -1,10 +1,19 @@
-<html>
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+    <header class="page-header">
+        <div class="container">
+            <h1>ChocolateCris Shop</h1>
+        </div>
+    </header>
     <body>
-    <h1>CocoaCris</h1>
-    {% block body %}
-    {% endblock body %}
+    <h3>The Delicious CocoaCris Truffles!</h3>
+   
     {% for truffle in all_truffles %}
-    <p>{{ truffle }}</p>
+        <h4>{{ truffle.title }}</h4>
+        <!--<img src="{{url_for('static', filename='Blessed truffle cacao 70.png')}}" align="" />-->
+        <p>Description: {{ truffle.truffle_description }}</p>
+        <p>Unit Price {{ truffle.unit_price }}</p>
+        <p><a href="{{ url_for('add_order_T') }}">Add</p>
     {% endfor %}
-    </body>
-</html>
+    {% endblock %}

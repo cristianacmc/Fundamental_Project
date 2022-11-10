@@ -1,14 +1,11 @@
 from application import app, db
-from application.models import Users, Orders, OrdersTruffles, Truffles
-from application.forms import AddUser, AddTruffle, AddOrderD, AddOrderT
-from flask import Blueprint, render_template
+from application.models import Orders, OrdersTruffles, Truffles
+from application.forms import AddTruffle, AddOrderD, AddOrderT
+from flask import render_template
 from flask import Flask, request, redirect, url_for
-from flask_login import login_user
+
 
 @app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/home')
 def home():
     all_truffles = Truffles.query.all()
@@ -17,35 +14,30 @@ def home():
 @app.route('/about')
 def aboutPage():
     return render_template('about.html')
-    
-@app.route('/cart')
-def cart():
-    return render_template('cart.html')
 
-# form add user 
-@app.route('/add_user', methods=['GET', 'POST'])
-def add_user():
-    form = AddUser()
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            user = Users(
-                forename = form.forename.data,
-                surname = form.surname.data,
-                email = form.email.data,
-                username = form.username.data,
-                password = form.password.data,
-                phone = form.phone.data,
-                address = form.address.data,
-                dob = form.dob.data
-            )
-            db.session.add(user)
-            db.session.commit()
-            # redirects the user to the home page
-            return redirect(url_for('add_user'))
+# # form add user 
+# /* @app.route('/add_user', methods=['GET', 'POST'])
+# def add_user():
+#     form = AddUser()
+#     if request.method == 'POST':
+#         if form.validate_on_submit():
+#             user = Users(
+#                 forename = form.forename.data,
+#                 surname = form.surname.data,
+#                 email = form.email.data,
+#                 username = form.username.data,
+#                 password = form.password.data,
+#                 phone = form.phone.data,
+#                 address = form.address.data,
+#                 dob = form.dob.data
+#             )
+#             db.session.add(user)
+#             db.session.commit()
+#             # redirects the user to the home page
+#             return redirect(url_for('add_user'))
 
-    # pass object to Jinja2 template
-    return render_template('AddUser.html', form=form)
-            
+#     # pass object to Jinja2 template
+#     return render_template('AddUser.html', form=form)
 
 # form add truffle
 @app.route('/add_truffle', methods = ['GET','POST'])
@@ -106,19 +98,21 @@ def add_order_T():
     form = AddOrderT()
     # checks is the http request is a post request
     if request.method == 'POST':
-        # checks if the form passes validation
-        subtotal = get_truffles.unit_price * get_truffles.quantity
+        # checks if the form passes validation 
         if form.validate_on_submit():
             # adds the dog to the database
             order = Orders(
-                order_date = form.order_date.data,
                 quantity = form.quantity.data
             )
             db.session.add(order)
             db.session.commit()
+
+            subtotal = get_truffles.unit_price * order.quantity
+            
             # redirects the user to the home page
             return redirect(url_for('add_order_truffle'))
 
+    subtotal = 0.0
     # pass object to Jinja2 template
     return render_template('addOrderT.html', form=form, get_truffles = get_truffles, subtotal=subtotal)
 

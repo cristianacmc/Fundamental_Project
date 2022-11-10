@@ -1,5 +1,5 @@
 <body>
-    <h1>Add a new order truffle:</h1>
+    <h1>Buy Truffle {{ get_truffles.title }}:</h1>
     <p>
         <div class='form'>
             <form method='POST' action=''>
@@ -9,8 +9,9 @@
                 {%  for t in get_truffles %}
                 {{ t.user_id.label }} {{ t.user_id }}
                 {{ t.truffle_id.label }} {{ t.truffle_id }}
-                {{ t.quantity.label }} {{ t.quantity }}
-                {{ form.subTotal.label }} {{ form.subTotal }}
+                {% endfor %}
+                {{ form.quantity.label }} {{ form.quantity }}
+                subtotal = {{ subtotal }}
                 <br>
                 <!-- form.submit is a button -->
                 {{ form.submit }}

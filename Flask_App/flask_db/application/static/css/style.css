@@ -1,0 +1,25 @@
+h1{
+    color: #fcfaf8;
+    font-family: 'Lobster';
+}
+
+h1,h2,h3,h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.page-header {
+    background-color: #352727;
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 20px 20px 20px 40px;
+}
+.item {
+    margin-bottom: 70px;
+}
+
+.btn-secondary,
+.btn-secondary:visited {
+    color: #C25100;
+    background: none;
+    border-color: #C25100;
+}
