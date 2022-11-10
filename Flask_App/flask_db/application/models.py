@@ -35,7 +35,7 @@ class Truffles(db.Model):
     __tablename__="truffles"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    truffle_description = db.Column(db.String(400), nullable = False)
+    truffle_description = db.Column(db.String, nullable = False)
     category = db.Column(db.String(15))
     unit_price = db.Column(db.Float)
     in_stock = db.Column(db.Integer)

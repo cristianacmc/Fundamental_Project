@@ -1,25 +1,40 @@
-<html>
-    <head>
-        <title>Add a new truffle</title>
-    </head>
-    <body>
+{% extends 'main.html' %}
+{% block todo %}
         <div class='form'>
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
                 {{ form.title.label }} {{ form.title }}
+                {% if form.title.errors %}
+                <div class='error'>
+                    {% for error in form.title.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
                 <br>
                 {{ form.truffle_description.label }} {{ form.truffle_description }}
+                {% if form.truffle_description.errors %}
+                <div class='error'>
+                    {% for error in form.truffle_description.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <br>
                 <br>
                 {{ form.unit_price.label }} {{ form.unit_price }}
                 <br>
+                <br>
                 {{ form.category.label}} {{ form.category}}
+                <br>
                 <br>
                 {{ form.in_stock.label }} {{ form.in_stock }}
                 <br>
+                <br>
                 {{ form.submit }}
                 <br>
-            {{ message }}
+                <br>
             </form>
-        </div>
-    </body>
-</html>
+        </form>
+    </div>
+{% endblock todo %}
