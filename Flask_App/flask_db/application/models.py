@@ -29,7 +29,7 @@ class OrdersTruffles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
     truffle_id = db.relationship('Truffles', backref='order_truffle')
-    quantity = db.Column(db.Integer, nullable=False)
+    quantity = db.Column(db.Float, nullable=False)
     
 class Truffles(db.Model):
     __tablename__="truffles"

@@ -95,12 +95,11 @@ def delete(title):
     return redirect(url_for('home'))
 
 # form add order truffle
-@app.route('/add_order_truffle/<title>', methods = ['GET','POST'])
+@app.route('/add_order_T/<title>', methods = ['GET','POST'])
 def add_order_T(title):
-    # query list of truffles from db
-    truffle= Truffles.query.filter_by(title=title).first()
-    # instantiate the DogForm object
     form = AddOrderT()
+    truffle= Truffles.query.filter_by(title=title).first()
+    
     # checks is the http request is a post request
     if request.method == 'POST':
         # checks if the form passes validation 
@@ -111,13 +110,11 @@ def add_order_T(title):
             )
             db.session.add(order)
             db.session.commit()
-
-            subtotal = truffle.unit_price * order.quantity
-            
+            subtotal = truffle.unit_price * order.quantity   
             # redirects the user to the home page
             return redirect(url_for('add_order_T'))
 
-    #subtotal = 0.0
+    subtotal = 0.0
     # pass object to Jinja2 template
     return render_template('addOrderT.html', form=form, truffle=truffle, subtotal=subtotal)
 

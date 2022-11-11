@@ -1,22 +1,18 @@
-<body>
-    <h1>Buy Truffle </h1>
-    <p>
+{% extends 'main.html' %}
+{% block todo %}
         <div class='form'>
             <form method='POST' action=''>
+                <h2>Buy {{ truffle.title }}</h2>
                 <!-- hidden_tag() is required for form validation -->
                 {{ form.hidden_tag() }}
                 <!-- Each field displays its label followed by the input field itself -->
-                {%  for t in get_truffles %}
-                {{ t.user_id.label }} {{ t.user_id }}
-                {{ t.truffle_id.label }} {{ t.truffle_id }}
-                {% endfor %}
                 {{ form.quantity.label }} {{ form.quantity }}
-                subtotal = {{ subtotal }}
+                <br>
+                <br>
+                SubTotal:  truffle.unit_price * form.quantity  
                 <br>
                 <!-- form.submit is a button -->
                 {{ form.submit }}
                 <br>
             </form>
-        </div>
-    </p>
-</body>
+{% endblock todo %}

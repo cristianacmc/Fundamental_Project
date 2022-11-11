@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, SelectField, SubmitField, IntegerField, BooleanField
+from wtforms import StringField, DateField, FloatField, SelectField, SubmitField, IntegerField, BooleanField
 from wtforms.validators import DataRequired, Length, ValidationError, EqualTo, Email
 
 # forms
@@ -49,7 +49,7 @@ class UpdateTruffle(FlaskForm):
 
 class AddOrderT(FlaskForm):
     #user_id = 
-    quantity = IntegerField('Quantity: ', validators=[DataRequired()])
+    quantity = FloatField('Quantity: ', validators=[DataRequired()])
     #truffle_id
 
 class AddOrderD(FlaskForm):
