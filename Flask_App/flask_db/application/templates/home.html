@@ -1,16 +1,13 @@
 {% extends 'main.html' %}
-{% block todo %}
+{% block content %}
     <h3>All Truffles :</h3>
-    <p>
     {% for truffle in all_truffles %}
+        Category: {{ truffle.order_truffle.category }}<br>
         {{ truffle.title }} <br>
-        Description : {{ truffle.truffle_description }} <br>
-        <br>
-        <span><a href="{{ url_for('dd_order_T', title=truffle.title) }}">Add</a></span>
-        <span><a href="{{ url_for('update', title=truffle.title) }}">Update</a></span> 
-        <span><a href="{{ url_for('delete', title=truffle.title) }}">Delete</a></span> 
-        <br>
-        <br>
-    {% endfor %}
-    </p>
-{% endblock todo %}
+        Description : {{ truffle.truffle_description }}<br>
+            <span><a href="{{ url_for('update', title=truffle.title) }}">Update</a></span> 
+            <span><a href="{{ url_for('delete', title=truffle.title) }}">Delete</a></span> 
+            <br>
+            <br>
+        {% endfor %}
+{% endblock content %}

@@ -24,7 +24,7 @@ from wtforms.validators import DataRequired, Length, ValidationError, EqualTo, E
 #     submit = SubmitField('Sign up')
 
 class AddTruffle(FlaskForm):
-    title = StringField('Title:', validators=[DataRequired(), Length(min=2,max=30)])
+    title = StringField('Title:', validators=[DataRequired(), Length(min=2,max=100)])
     truffle_description = StringField('Description: ', validators=[DataRequired(), Length(min=2,max=400)])
     category = SelectField("Category Type", choices=[
         ("dairy", "Dairy"), 
@@ -39,20 +39,22 @@ class UpdateTruffle(FlaskForm):
     title = StringField('Title:', validators=[DataRequired(), Length(min=2,max=100)])
     truffle_description = StringField('Description: ', validators=[DataRequired(), Length(min=2,max=400)])
     category = SelectField("Category Type", choices=[
-        ("dairy", "Dairy"), 
-        ("dairy-free", "Dairy Free"), 
-        ("sugar free", "sugar Free")
+        (1, "Dairy"), 
+        (2, "Dairy Free"), 
+        (3, "sugar Free")
     ])
     unit_price = StringField('Price: ', validators=[DataRequired()])
     in_stock = IntegerField('Stock: ', validators=[DataRequired()])
     submit = SubmitField("Update")
 
-class AddOrderT(FlaskForm):
-    #user_id = 
-    quantity = IntegerField('Quantity: ', validators=[DataRequired()])
-    #truffle_id
+# class AddOrderT(FlaskForm):
+#     #user_id = 
+#     quantity = IntegerField('Quantity: ', validators=[DataRequired()])
+#     #truffle_id
 
-class AddOrderD(FlaskForm):
-    order_date = DateField('Date:', validators=[DataRequired()])
-    user_id = SelectField("user_id")
-   
+# class AddOrderD(FlaskForm):
+#     order_date = DateField('Date:', validators=[DataRequired()])
+#     user_id = SelectField("user_id")
+
+class AddCategory(FlaskForm):
+    category = StringField('Category:', validators=[DataRequired(), Length(min=2,max=30)])
