@@ -10,8 +10,14 @@ def aboutPage():
 @app.route('/')
 @app.route('/home')
 def home():
-    all_truffles = Truffles.query.join(Categories, isouter=True).all()
+    all_truffles = Truffles.query.join(Categories).all()
     return render_template('home.html', all_truffles=all_truffles)
+
+@app.route('/categories')
+def categories():
+    all_categories = Categories.query.all()
+    all_truffles = Truffles.query.all()
+    return render_template('categories.html', all_categories=all_categories, all_truffles=all_truffles)
 
 # form add truffle
 @app.route('/add_truffle', methods = ['GET','POST'])
@@ -104,9 +110,8 @@ def update_category(title):
     else:
         if updateform.validate_on_submit():
             category.category = updateform.category.data
-      
             db.session.commit()
-            return redirect(url_for('home'))
+            return redirect(url_for('categories'))
 
 
    

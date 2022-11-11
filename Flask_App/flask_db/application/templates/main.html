@@ -8,9 +8,12 @@
             <h1>CocoaCris Shop</h1>
         </div>
         <div style="text-align: right">
-            <span><a href="{{ url_for('add_truffle') }}">Create_Truffle</a></span>
-            <span><a href="{{ url_for('home') }}">Read</a></span>
-            <span><a href="{{ url_for('add_category') }}">Add Category</a></span>
+            <span><a href="{{ url_for('add_truffle') }}">
+                <button type="submit">Add Truffle</button></a></span>
+            <span><a href="{{ url_for('home') }}">
+                <button type="submit">Read</button></a></span>
+            <span><a href="{{ url_for('categories') }}">
+                <button type="submit">All Categories</button></a></span>
         </div>
             {% block content %}
             {% endblock content %}

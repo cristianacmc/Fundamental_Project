@@ -4,8 +4,10 @@
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
                 {{ form.category.label }} {{ form.category }}
+                {{ form.submit }}
                 <br>
                 <br>
+                Edit category: {{form.category}}
                 {% if form.category.errors %}
                 <div class='error'>
                     {% for error in form.category.errors %}
@@ -14,7 +16,7 @@
                 </div>
                 {% endif %}
                 <br>
-                {{ form.submit }}
+                
             </form>
-    </div>
+        </div>
 {% endblock content %}

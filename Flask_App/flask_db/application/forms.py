@@ -14,13 +14,14 @@ class AddTruffle(FlaskForm):
     in_stock = IntegerField('Stock: ', validators=[DataRequired()])
     submit = SubmitField("Submit")
 
+
 class UpdateTruffle(FlaskForm):
     title = StringField('Title:', validators=[DataRequired(), Length(min=2,max=100)])
     truffle_description = StringField('Description: ', validators=[DataRequired(), Length(min=2,max=400)])
     category = SelectField("Category Type", choices=[
-        (1, "Dairy"), 
-        (2, "Dairy Free"), 
-        (3, "sugar Free")
+        ("Dairy", "Dairy"), 
+        ("Dairy Free", "Dairy Free"), 
+        ("Sugar free", "Sugar Free")
     ])
     unit_price = StringField('Price: ', validators=[DataRequired()])
     in_stock = IntegerField('Stock: ', validators=[DataRequired()])

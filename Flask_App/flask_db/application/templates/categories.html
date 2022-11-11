@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+    <h3>All Categories:</h3>
+    {% for category in all_categories %}
+        {{ category.category }}
+        <br>
+            {% for truffle in all_truffles %}
+                {% if category.id == truffle.category_id %}
+                    {{ truffle.title }}<br>
+                {% endif %}
+            {% endfor %}
+        <br>
+        <br>
+    {% endfor %}
+    </p>
+{% endblock content %}

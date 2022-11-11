@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block content %}
+<h3>Update Category:</h3>
+<div class='form'>
+    <form method='POST' action=''>
+        {{ form.hidden_tag() }}
+        {{ form.category.label }} {{ form.category }}
+        {% if form.category.errors %}
+        <div class='error'>
+            {% for error in form.category.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <br>
+        {{ form.submit }}
+    </form>
+</div>
+{% endblock content %}
