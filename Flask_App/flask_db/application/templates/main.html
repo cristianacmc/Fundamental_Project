@@ -3,10 +3,16 @@
     <head>
         <title>ChocolateCris Shop</title>
     </head>
-    <body style="text-align: left">
-        <h1>CocoaCris Shop</h1>
-        {% block todo %}{% endblock todo %}
+    <body>
+        <div style="text-align: left">
+            <h1>CocoaCris Shop</h1>
+        </div>
+        <div style="text-align: right">
+            <span><a href="{{ url_for('add_truffle') }}">Create_Truffle</a></span>
+            <span><a href="{{ url_for('home') }}">Read</a></span>
+            <span><a href="{{ url_for('add_category') }}">Add Category</a></span>
+        </div>
+            {% block content %}
+            {% endblock content %}
     </body>
-    <span><a href="{{ url_for('add_truffle') }}">Create</a></span>
-    <span><a href="{{ url_for('home') }}">Read</a></span>
 </html>
