@@ -6,9 +6,9 @@ class AddTruffle(FlaskForm):
     title = StringField('Title:', validators=[DataRequired(), Length(min=2,max=100)])
     truffle_description = StringField('Description: ', validators=[DataRequired(), Length(min=2,max=400)])
     category = SelectField("Category Type", choices=[
-        ("dairy", "Dairy"), 
-        ("dairy-free", "Dairy Free"), 
-        ("sugar free", "sugar Free")
+        (1, "Dairy"), 
+        (2, "Dairy Free"), 
+        (3, "Sugar Free")
     ])
     unit_price = StringField('Price: ', validators=[DataRequired()])
     in_stock = IntegerField('Stock: ', validators=[DataRequired()])
@@ -19,9 +19,9 @@ class UpdateTruffle(FlaskForm):
     title = StringField('Title:', validators=[DataRequired(), Length(min=2,max=100)])
     truffle_description = StringField('Description: ', validators=[DataRequired(), Length(min=2,max=400)])
     category = SelectField("Category Type", choices=[
-        ("Dairy", "Dairy"), 
-        ("Dairy Free", "Dairy Free"), 
-        ("Sugar free", "Sugar Free")
+        (1, "Dairy"), 
+        (2, "Dairy Free"), 
+        (3, "Sugar Free")
     ])
     unit_price = StringField('Price: ', validators=[DataRequired()])
     in_stock = IntegerField('Stock: ', validators=[DataRequired()])

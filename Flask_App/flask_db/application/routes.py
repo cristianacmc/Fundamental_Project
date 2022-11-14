@@ -29,6 +29,7 @@ def add_truffle():
                 title = form.title.data,
                 truffle_description = form.truffle_description.data,
                 unit_price = form.unit_price.data,
+                category_id = form.category.data,
                 in_stock = form.in_stock.data
             )
             db.session.add(truffle)
