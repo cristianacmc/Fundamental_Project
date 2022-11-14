@@ -3,10 +3,6 @@ from application.models import Truffles, Categories
 from application.forms import AddTruffle, UpdateTruffle, AddCategory, UpdateCategory
 from flask import render_template, redirect, url_for, request
 
-@app.route('/about')
-def aboutPage():
-    return render_template('about.html')
-
 @app.route('/')
 @app.route('/home')
 def home():
