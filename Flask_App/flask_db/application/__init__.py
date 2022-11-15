@@ -1,10 +1,8 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
-Bootstrap(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 

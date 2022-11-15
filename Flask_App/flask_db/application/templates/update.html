@@ -5,6 +5,7 @@
     <form method='POST' action=''>
         {{ form.hidden_tag() }}
         {{ form.title.label }} {{ form.title }}
+        <br>
         {% if form.title.errors %}
         <div class='error'>
             {% for error in form.title.errors %}
@@ -14,6 +15,7 @@
         {% endif %}
         <br>
         Description: {{ form.truffle_description }}
+        <br>
         {% if form.truffle_description.errors %}
         <div class='error'>
             {% for error in form.description.errors %}
@@ -23,8 +25,9 @@
         {% endif %}
         <br>
         {{ form.category.label }} {{ form.category }}
-        <br>
+        <br><br>
         {{ form.unit_price.label }} {{ form.unit_price }}
+        <br>
         {% if form.unit_price.errors %}
         <div class='error'>
             {% for error in form.unit_price.errors %}
@@ -34,6 +37,7 @@
         {% endif %}
         <br>
         {{ form.in_stock.label }} {{ form.in_stock }}
+        <br>
         {% if form.in_stock.errors %}
         <div class='error'>
             {% for error in form.in_stock.errors %}

@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import Truffles, Categories
-from application.forms import AddTruffle, UpdateTruffle, AddCategory, UpdateCategory
+from application.forms import AddTruffle, UpdateTruffle
 from flask import render_template, redirect, url_for, request
 
 @app.route('/')
@@ -56,7 +56,7 @@ def update(title):
 
     # Update the item in the databse when they submit
     else:
-        if updateform.validate_on_submit():
+        if request.method=='POST' or updateform.validate_on_submit():
             truffle.title = updateform.title.data
             truffle.truffle_description = updateform.truffle_description.data
             truffle.category_id = updateform.category.data
@@ -72,43 +72,43 @@ def delete(title):
     db.session.commit()
     return redirect(url_for('home'))
 
-# form add truffle
-@app.route('/add_category', methods = ['GET','POST'])
-def add_category():
-    # instantiate the DogForm object
-    form = AddCategory()
-    # checks is the http request is a post request
-    if request.method == 'POST':
-        # checks if the form passes validation
-        if form.validate_on_submit():
-            # adds the dog to the database
-            category = Categories(
-                category = form.category.data
-            )
-            db.session.add(category)
-            db.session.commit()
-            # redirects the user to the home page
-            return redirect(url_for('add_category'))
+# # form add truffle
+# @app.route('/add_category', methods = ['GET','POST'])
+# def add_category():
+#     # instantiate the DogForm object
+#     form = AddCategory()
+#     # checks is the http request is a post request
+#     if request.method == 'POST':
+#         # checks if the form passes validation
+#         if form.validate_on_submit():
+#             # adds the dog to the database
+#             category = Categories(
+#                 category = form.category.data
+#             )
+#             db.session.add(category)
+#             db.session.commit()
+#             # redirects the user to the home page
+#             return redirect(url_for('add_category'))
 
-    # pass object to Jinja2 template
-    return render_template('add_category.html', form=form)
+#     # pass object to Jinja2 template
+#     return render_template('add_category.html', form=form)
 
-@app.route('/update_category/<title>', methods=['GET', 'POST'])
-def update_category(title):
-    updateform = UpdateCategory()
-    category= Categories.query.filter_by(title=title).first()
+# @app.route('/update_category/<title>', methods=['GET', 'POST'])
+# def update_category(title):
+#     updateform = UpdateCategory()
+#     category= Categories.query.filter_by(title=title).first()
     
-    # Prepopulate the form boxes with current values when they open the page.
-    if request.method == 'GET':
-        updateform.category.data = category.category
-        return render_template('update_category.html', form=updateform)
+#     # Prepopulate the form boxes with current values when they open the page.
+#     if request.method == 'GET':
+#         updateform.category.data = category.category
+#         return render_template('update_category.html', form=updateform)
 
-    # Update the item in the databse when they submit
-    else:
-        if updateform.validate_on_submit():
-            category.category = updateform.category.data
-            db.session.commit()
-            return redirect(url_for('categories'))
+#     # Update the item in the databse when they submit
+#     else:
+#         if updateform.validate_on_submit():
+#             category.category = updateform.category.data
+#             db.session.commit()
+#             return redirect(url_for('categories'))
 
 
    
