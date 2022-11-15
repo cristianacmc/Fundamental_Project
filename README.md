@@ -62,14 +62,14 @@ the training modules. The tech stack required would be the following:
   I decided to build an App to add truffles from different categories, which allows you to update and delete truffles and see the list in which each truffle belongs to. 
   The database for this project comprises a Truffles table and a Categories table having a one-to-many relationship, where one Category can have many truffles and one truffle belongs to only one category. The ERD(entity–relationship model) for this MVP(Minimum Viable Product) is shown below: 
 
-![](images/ERD.png "ERD diagram")
+![](Flask_App/images/ERD.png "ERD diagram")
 
 ## CI Pipeline:
 
  The Trello board I was used to track the project. A list of items were assigned to a <em>To Do</em> list, moving to a <em>Doing</em> lits and then to the <em>Done</em> list as the tasks were completed. 
  The state of the Trello board at the beggining was:
 
-  ![](images/trello_board.PNG "Trello board")
+  ![](Flask_App/images/trello_board.PNG "Trello board")
 
 The trello board can be accessed [here](https://trello.com/b/ESbyu6vy/fundamentalproject) 
 
@@ -82,7 +82,7 @@ The code was fully integrated into the SCM (source control management), Git and 
 
 A risk assessment was designed to evaluate potential scenarios that may impact the project in a negative way. These measures could then be implemented in the app such that these risks are less likely to occur. This initial risk assessment is shown below:
 
-![](images/risk_assessment.PNG "Risk Assessment")
+![](Flask_App/images/risk_assessment.PNG "Risk Assessment")
 
 Some of the control measures implemented in the project to reduce the likelihood of a risk occurring are as follows:
 - Back up of the data regularly from SQL Alchemy into csv file
@@ -97,16 +97,16 @@ To test this flask application a unit test was implemented to test the functiona
 
 Once the app is running, the user is presented with the main page: 
 
-![](images/main_page.PNG "Main Page")
+![](Flask_App/images/main_page.PNG "Main Page")
 
 The top right hand side of the page provides links that allow to add a truffle and see all categories. To add a new truffle, you click on the <em>Add Truffle</em> button. After filling out the form, the user is redirect to the main page. 
 
-![](images/add_truffle.PNG "Add Truffle page")
+![](Flask_App/images/add_truffle.PNG "Add Truffle page")
 
 The application allows you to update and delete truffles. 
 
-![](images/update_truffle.PNG "Add Truffle page")
+![](Flask_App/images/update_truffle.PNG "Add Truffle page")
 
 Finally, you can see all the truffle categories on the categories page.
 
-![](images/categories.PNG "Add Truffle page")
+![](Flask_App/images/categories.PNG "Add Truffle page")
