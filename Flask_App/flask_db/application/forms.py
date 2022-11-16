@@ -27,8 +27,8 @@ class UpdateTruffle(FlaskForm):
     in_stock = IntegerField('Stock: ', validators=[DataRequired()])
     submit = SubmitField("Update")
 
-# class AddCategory(FlaskForm):
-#     category = StringField('Category:', validators=[DataRequired(), Length(min=2,max=30)])
+class AddCategory(FlaskForm):
+    category = StringField('Category:', validators=[DataRequired(), Length(min=2,max=30)])
 
 # class UpdateCategory(FlaskForm):
 #     category = StringField('category:', validators=[DataRequired(), Length(min=2,max=30)])

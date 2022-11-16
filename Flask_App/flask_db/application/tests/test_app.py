@@ -1,7 +1,7 @@
 from flask import url_for
 from flask_testing import TestCase
 from application import app, db
-from application.models import Truffles
+from application.models import Truffles, Categories
 
 #create the base class 
 class TestBase(TestCase):
@@ -16,10 +16,11 @@ class TestBase(TestCase):
     def setUp(self):
         # Create table
         db.create_all()
-
+        samplec=Categories(category="Dairy")
         sample1 = Truffles(title="Traditional truffle 30g", truffle_description="Slightly firm on the outside, with a soft filling and a very characteristic and delicious flavor on the inside. Here, the milk chocolate cone and the traditional truffle filling form a delicious combination.", unit_price="4.00", in_stock="40", category_id="1")
         
         # save truffle to database
+        db.session.add(samplec)
         db.session.add(sample1)
         db.session.commit()
     
